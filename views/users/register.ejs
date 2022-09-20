@@ -1,0 +1,38 @@
+<% layout('layouts/boilerplate') %>
+
+    <form action="/register" class="needs-validation" method="post" novalidate>
+        <div class="col-md-6 offset-md-3 col-xl-4 offset-xl-4">
+            <div class="card shadow-lg p-3 mb-5 bg-body rounded">
+                <img src="https://images.unsplash.com/photo-1607000975574-0b425df6975a?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=774&q=80"
+                    class="card-img-top" alt="">
+                <div class="card-body">
+                    <h4 class="card-title">Register</h4>
+                    <div class="">
+                        <label for="username" class="form-label">Username</label>
+                        <input type="text" class="form-control mb-3" id="username" name="username" autofocus required>
+                        <div class="invalid-feedback">
+                            Username cannot be empty.
+                        </div>
+                        <div class="valid-feedback">Looks Good!!</div>
+                    </div>
+                    <div class="">
+                        <label for="email" class="form-label">Email</label>
+                        <input type="email" class="form-control mb-3" id="email" name="email" required>
+                        <div class="invalid-feedback">
+                            Email cannot be empty.
+                        </div>
+                        <div class="valid-feedback">Looks Good!!</div>
+                    </div>
+                    <div class="">
+                        <label for="Password" class="form-label">Password</label>
+                        <input type="password" class="form-control mb-3" id="password" name="password" required>
+                        <div class="invalid-feedback">
+                            Password cannot be empty.
+                        </div>
+                        <div class="valid-feedback">Looks Good!!</div>
+                    </div>
+                    <button class="btn btn-md btn-info col-3 offset-0">Register</button>
+                </div>
+            </div>
+        </div>
+    </form>

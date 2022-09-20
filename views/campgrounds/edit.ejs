@@ -1,0 +1,79 @@
+<% layout('layouts/boilerplate') %>
+    <div class="row col-md-6 offset-md-3">
+        <form action="/campgrounds/<%=campground._id%>?_method=PUT" method="POST" class="needs-validation" novalidate
+            enctype="multipart/form-data">
+            <div class="card shadow-lg p-3 mb-5 bg-body rounded">
+                <div class="card-body">
+                    <h2 class="card-title text-center mb-4"><u>EDIT YOUR CAMPGROUND</u></h2>
+                    <div class="mb-3">
+                        <label for="title" class="form-label">Title</label>
+                        <input type="text" class="form-control" id="title" name="campground[title]"
+                            value="<%=campground.title%>" required>
+                        <div class="invalid-feedback">
+                            Please provide a username.
+                        </div>
+                        <div class="valid-feedback">Looks Good!!</div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="location" class="form-label">Location</label>
+                        <input type="text" class="form-control" id="title" name="campground[location]"
+                            value="<%=campground.location%>" required>
+                        <div class="invalid-feedback">
+                            Please provide a location.
+                        </div>
+                        <div class="valid-feedback">Looks Good!!</div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="price" class="form-label">Price
+                            <div class="input-group">
+                                <span class="input-group-text">$</span>
+                                <input type="number" class="form-control" id="price" name="campground[price]"
+                                    value="<%=campground.price%>" required>
+                                <span class="input-group-text">.00</span>
+                                <div class="invalid-feedback">
+                                    Please provide a price.
+                                </div>
+                                <div class="valid-feedback">Looks Good!!</div>
+
+                            </div>
+                        </label>
+                    </div>
+                    <div class="form-floating mb-3">
+                        <textarea class="form-control" placeholder="Leave description here" id="description"
+                            style="height: 100px" name="campground[description]"
+                            required><%=campground.description%></textarea>
+                        <label for=" description">Description</label>
+                        <div class="invalid-feedback">
+                            Please provide description.
+                        </div>
+                        <div class="valid-feedback">Looks Good!!</div>
+                    </div>
+                    <div class="mb-3 ">
+                        <label for="formFile" class="form-label">Add more images..</label>
+                        <input class="form-control" type="file" id="formFile" name="image" multiple>
+
+                        </label>
+
+                    </div>
+                    <div class="mb-3">
+
+                        <% campground.images.forEach(function(img,i){ %>
+                            <img src="<%= img.thumbnail %> " alt="" class="img-thumbnail">
+                            <div class="form-check-inline">
+                                <input class="form-check-input" type="checkbox" value="<%=img.filename%>"
+                                    id="image-<%=i%>" name="deleteImages[]">
+                                <label class="form-check-label" for="image-<%= i %>">
+                                    Delete?
+                                </label>
+                            </div>
+                            <% }) %>
+
+                    </div>
+
+                    <button type="submit" class="btn btn-info mb-3">Update Changes</button>
+
+        </form>
+
+        <a href="/campgrounds/<%=campground._id%>" class="btn btn-secondary mb-3">Back to Campground</a>
+    </div>
+    </div>
