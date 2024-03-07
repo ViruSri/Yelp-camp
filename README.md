@@ -9,3 +9,8 @@ DATABURL=mongodb+srv://first-user:bannu888@cluster0.z5wfjf3.mongodb.net/?retryWr
 
 
 .emv
+
+node_modules
+.env
+
+-- gitignore
